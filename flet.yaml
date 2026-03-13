@@ -1,0 +1,13 @@
+project:
+  name: YT Music Downloader
+  org: com.angel.ytmusicdownloader
+  version: 1.0.0
+  display_name: YT Music Downloader
+
+android:
+  permissions:
+    - INTERNET
+    - WRITE_EXTERNAL_STORAGE
+    - READ_EXTERNAL_STORAGE
+  # We might need to bundle FFmpeg if not using a library.
+  # For now, we'll assume a standard build.
