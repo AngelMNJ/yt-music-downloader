@@ -38,9 +38,15 @@ jobs:
       - name: Flutter Doctor
         run: flutter doctor -v
 
+      - name: Check Environment
+        run: |
+          python --version
+          flet --version
+          flutter --version
+
       - name: Build APK
         run: |
-          python -m flet build apk --main yt_music_downloader.py -vv
+          flet build apk --main yt_music_downloader.py -vv
         env:
           FLET_BUILD_DEBUG: "true"
 
