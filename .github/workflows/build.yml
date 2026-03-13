@@ -15,6 +15,12 @@ jobs:
         with:
           python-version: '3.10'
 
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -28,9 +34,9 @@ jobs:
 
       - name: Build APK
         run: |
-          flet build apk --main yt_music_downloader.py
+          python -m flet build apk --main yt_music_downloader.py
         env:
-          FLET_BUILD_DEBUG: "true" # For easier troubleshooting
+          FLET_BUILD_DEBUG: "true"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
