@@ -32,9 +32,15 @@ jobs:
         with:
           channel: 'stable'
 
+      - name: Accept Android Licenses
+        run: yes | sdkmanager --licenses || true
+
+      - name: Flutter Doctor
+        run: flutter doctor -v
+
       - name: Build APK
         run: |
-          python -m flet build apk --main yt_music_downloader.py
+          python -m flet build apk --main yt_music_downloader.py -vv
         env:
           FLET_BUILD_DEBUG: "true"
 
